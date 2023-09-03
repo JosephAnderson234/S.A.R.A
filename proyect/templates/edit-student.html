@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<form action="/update/{{student.0}}" method="post">
+
+    <input type="text" name="name" placeholder="name" value="{{student.1}}">
+    <input type="text" name="lastname" placeholder="lastname" value="{{student.2}}">
+    <input type="text" name="code" placeholder="code" value="{{student.0}}">
+    <input type="text" name="dieta" placeholder="dieta" value="{{student.3}}">
+    <button type="submit">
+        save
+    </button>
+</form>
+
+{% endblock %}
