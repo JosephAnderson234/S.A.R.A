@@ -1,5 +1,29 @@
 body{
-    background: #833ab4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #83a4d4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+header{
+    width: 90%;
+    padding: 1em 1em;
+    margin: 0 auto;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-container img{
+    font-size: 16px;
+    width: 9em;
+    margin: 1em;
+}
+
+.container{
+    margin: 1em auto;
+    width: 90%;
+}
+

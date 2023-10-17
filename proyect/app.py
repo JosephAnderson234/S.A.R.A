@@ -24,12 +24,12 @@ def add_student():
         name = request.form['name']
         lastname = request.form['lastname']
         code = request.form['code']
-        dieta = request.form['dieta']
+        grado = request.form['grado']
         """ cur = mysql.connection.cursor()
         cur.execute("SELECT * FROM students")
         mysql.connect.commit() """
         miCursor = conexion.cursor()
-        miCursor.execute(f'INSERT INTO students (code_student, firstName, lastName, diet) values ({code},"{name}", "{lastname}", "{dieta}")')
+        miCursor.execute(f'INSERT INTO students (code_student, firstName, lastName, grade) values ({code},"{name}", "{lastname}", "{grado}")')
         conexion.commit()
         flash("Estudiante añadido exitosamente")
         return redirect(url_for("Index"))
@@ -47,15 +47,15 @@ def update_student(id):
         name = request.form['name']
         lastname = request.form['lastname']
         code = request.form['code']
-        dieta = request.form['dieta']
+        grado = request.form['grado']
         miCursor = conexion.cursor()
         miCursor.execute("""
             UPDATE students
             SET firstName = %s,
                 lastName = %s,
-                diet = %s
+                grade = %s
             WHERE code_student = %s
-        """, (name, lastname, dieta, code))
+        """, (name, lastname, grado, code))
         conexion.commit()
         flash("Actualización concretada")
         return redirect(url_for("Index"))
