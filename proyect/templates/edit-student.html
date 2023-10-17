@@ -2,15 +2,40 @@
 
 {% block body %}
 
-<form action="/update/{{student.0}}" method="post">
+<form action="/update/{{student.0}}" method="post"s>
+    
+    <div class="mb-3 row">
+        <label for="staticName" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" placeholder="name" value="{{student.1}}">
+        </div>
+    </div>
 
-    <input type="text" name="name" placeholder="name" value="{{student.1}}">
-    <input type="text" name="lastname" placeholder="lastname" value="{{student.2}}">
-    <input type="text" name="code" placeholder="code" value="{{student.0}}">
-    <input type="text" name="dieta" placeholder="dieta" value="{{student.3}}">
-    <button type="submit">
+    <div class="mb-3 row">
+        <label for="staticLastName" class="col-sm-2 col-form-label">Apellidos </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="lastname" placeholder="lastname" value="{{student.2}}">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="staticCode" class="col-sm-2 col-form-label">Código </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="code" placeholder="code" value="{{student.0}}">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="staticCode" class="col-sm-2 col-form-label">Grado </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="grado" placeholder="grado" value="{{student.3}}">
+        </div>
+    </div>
+    
+    <button class="btn btn-primary" type="submit">
         save
     </button>
+    
 </form>
 
 {% endblock %}

@@ -4,56 +4,79 @@
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message in messages %}
-<div class="alert alert-succes alert-dismissible fade show" role="alert">
+<div class="alert alert-warning alert-dismissible fade show position-relative z-3 g-5" role="alert">
     {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {% endfor %}
 {% endif %}
 {% endwith %}
-<form action="/add_student" method="post">
+<div class="ctn-form-register g-5">
+    <form action="/add_student" method="post" class="">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name">
+            <label for="floatingInput">Nombres</label>
+        </div>
 
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="lastname" placeholder="lastname">
-    <input type="text" name="code" placeholder="code">
-    <input type="text" name="dieta" placeholder="dieta">
-    <button type="submit">
-        save
-    </button>
-</form>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floating2" name="lastname" placeholder="lastname">
+            <label for="floating2">Apellidos</label>
+        </div>
 
-<table>
-    <thead>
-        <tr>
-            <td>Codigo</td>
-            <td>Nombre(s)</td>
-            <td>Apellidos</td>
-            <td>Dieta</td>
-            <td>Acciones</td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for student in students %}
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput3" name="code" placeholder="code">
+            <label for="floatingInput3">Codigo</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput4" name="grado" placeholder="grado">
+            <label for="floatingInput4">Grado</label>
+        </div>
+        
+        <button type="submit" class="btn btn-success">
+            save
+        </button>
+    </form>
+</div>
+<br>
+<br>
+<h1 class="h2 text-center">Administralos a todos
+</h1>
+<div class="g-5">
+    <table class="table table-dark table-striped">
+        <thead>
             <tr>
-                <td>
-                    {{ student.0 }}
-                </td>
-                <td>
-                    {{ student.1 }}
-                </td>
-                <td>
-                    {{ student.2 }}
-                </td>
-                <td>
-                    {{ student.3 }}
-                </td>
-                <td>
-                    <a href="/edit/{{student.0}}">Editar</a>
-                    <a href="/delete/{{student.0}}">Eliminar</a>
-                </td>
+                <td>Codigo</td>
+                <td>Nombre(s)</td>
+                <td>Apellidos</td>
+                <td>Grado</td>
+                <td>Acciones</td>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>
+                        {{ student.0 }}
+                    </td>
+                    <td>
+                        {{ student.1 }}
+                    </td>
+                    <td>
+                        {{ student.2 }}
+                    </td>
+                    <td>
+                        {{ student.3 }}
+                    </td>
+                    <td>
+                        <a href="/edit/{{student.0}}" class="btn btn-success">Editar</a>
+                        <a href="/delete/{{student.0}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 
 {% endblock %}
